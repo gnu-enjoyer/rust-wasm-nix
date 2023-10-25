@@ -1,0 +1,25 @@
+{
+    "name": "nix-container",
+    "dockerFile": "Dockerfile",
+    "context": "${localWorkspaceFolder}",
+    "build": {
+      "args": {
+        "USER_UID": "${localEnv:USER_UID}",
+        "USER_GID": "${localEnv:USER_GID}"
+      }
+    },
+    "runArgs": [
+      "--security-opt", "label=disable"
+    ],
+    "overrideCommand": false,
+    "userEnvProbe": "loginShell",
+    "updateRemoteUserUID": false,  
+    "forwardPorts": [],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "arrterian.nix-env-selector"
+            ]
+        }
+    }   
+}

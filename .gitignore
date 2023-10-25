@@ -1,0 +1,13 @@
+*
+!*/
+!src/**
+!Makefile
+!*.html
+!*.css
+!*.nix
+!flake.lock
+!Cargo.lock
+!*.toml
+!*.yml
+!.devcontainer/*
+!.gitignore
