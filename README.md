@@ -6,8 +6,8 @@ Features:
 * Portable CI/CD
 * .devcontainer for GitHub Codespaces
 
-Live preview:
-    TBD
+Live preview (slow, debug build):
+    https://gnu-enjoyer.github.io/rust-wasm-nix/
 
 Dev env:
     `nix develop`
