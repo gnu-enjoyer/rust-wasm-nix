@@ -1,10 +1,46 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8" />
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      font-size: 1.5em;
+      z-index: 9999;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading-screen">Loading...</div>
   <script type="module">
-    import init from './wasm_example.js'
-    init()
+    import init from './wasm_example.js';
+    (async () => {
+      try {
+        await init();
+      } catch (err) {
+        console.error("wasm init error:", err);
+      } finally {
+        document.getElementById('loading-screen').style.display = 'none';
+      }
+    })();
   </script>
+</body>
+
 </html>
